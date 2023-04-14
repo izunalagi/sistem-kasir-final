@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TransactionController;
 
 /*
@@ -58,6 +59,13 @@ Route::middleware(['auth'])->group(function(){
     //transaction
      Route::get('/home/transaction', [TransactionController::class,'index'])->name('transaction.index');
 
+     //product
+     Route::get('/home/product', [ProductController::class,'index'])->name('product.index');
+     Route::get('/product/create', [ProductController::class,'create'])->name('product.create');
+     Route::post('/product/store', [ProductController::class, 'store'])->name('product.store');
+     Route::get('/product/{id}/edit', [ProductController::class, 'edit'])->name('product.edit');
+     Route::put('/product/{id}', [ProductController::class, 'update'])->name('product.edit');
+     Route::delete('/product/{id}', [ProductController::class, 'destroy'])->name('product.destroy');
 });
 
 Auth::routes();

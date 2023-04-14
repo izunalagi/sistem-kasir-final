@@ -2,13 +2,13 @@
 
 @section('isi')
     <br>
-    <a href="{{ route('category.index') }}">
+    <a href="{{ route('product.index') }}">
         <button type="button" class="btn btn-primary">Kembali</button>
     </a>
     <br>
     <br>
 
-    <form action="{{ route('category.store') }}" method="post">
+    <form action="{{ route('product.store') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="form-floating mb-3">
             <label for="name">name :</label>
@@ -16,6 +16,25 @@
             <br>
             <input type="text" name="name" placeholder="Name">
         </div>
+        <div class="form-floating mb-3">
+            <label for="price">price :</label>
+            <br>
+            <br>
+            <input type="number" name="price" placeholder="Price">
+        </div>
+        <div class="form-floating mb-3">
+            <label for="stocks">stocks :</label>
+            <br>
+            <br>
+            <input type="number" name="stocks" placeholder="Stocks">
+        </div>
+        <div class="form-floating mb-3">
+            <label for="photo">Upload Photo :</label>
+            <br>
+            <br>
+            <input type="file" name="photo" placeholder="Upload Photo">
+        </div>
+
         <br>
         <button type="submit" class="btn btn-primary">Kirim</button>
     </form>

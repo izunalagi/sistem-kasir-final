@@ -1,23 +1,40 @@
 @extends('dashboard.admin')
 
+
 @section('isi')
     <br>
-    <a href="{{ route('category.index') }}">
+    <a href="{{ route('product.index') }}">
         <button type="button" class="btn btn-primary">Kembali</button>
     </a>
     <br>
     <br>
 
-    <form action="{{ route('category.store') }}" method="post">
+    <form action="/product/{{ $ganti->id }}" method="POST" enctype="multipart/form-data">
         @csrf
+        @method('put')
         <div class="form-floating mb-3">
             <label for="name">name :</label>
             <br>
             <br>
-            <input type="text" name="name" placeholder="Name">
+            <input type="text" name="name" placeholder="Name" value="{{ $ganti->name }}">
+
+        </div>
+        <div class="form-floating mb-3">
+            <label for="name">price :</label>
+            <br>
+            <br>
+            <input type="number" name="price" placeholder="Price" value="{{ $ganti->price }}">
+
+        </div>
+        <div class="form-floating mb-3">
+            <label for="name">stocks :</label>
+            <br>
+            <br>
+            <input type="number" name="stocks" placeholder="Stocks" value="{{ $ganti->stocks }}">
+
         </div>
         <br>
-        <button type="submit" class="btn btn-primary">Kirim</button>
+        <button type="submit" class="btn btn-primary">Ubah</button>
     </form>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
