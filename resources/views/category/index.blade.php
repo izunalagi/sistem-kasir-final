@@ -1,70 +1,63 @@
-@extends('dashboard.admin')
+@extends('layouts.app')
 
-@section('judul')
-    Category Produk
+@section('title', 'Product Index Page')
+
+@section('scripts')
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
 @endsection
 
-
-@section('isi')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('Data') }}</div>
-
-                    <br>
-
-                    <div>
-
-                        <a href="{{ route('category.create') }}">
-                            <button type="button" class="btn btn-primary">Buat</button>
-                        </a>
-
-                        {{-- <a href="{{ route('home') }}">
-                            <button type="button" class="btn btn-primary">kembali</button>
-                        </a>
-                    </div> --}}
+@section('content')
+    @auth
+        {{-- <div class="d-flex mb-4">
+            <a href="{{ route('category.create') }}" type="button" class="ms-auto btn btn-primary">
+                Tambah
+            </a>
+        </div> --}}
+    @endauth
+    <div>
 
 
 
-                        <table class="table table-bordered">
-                            <thead>
-                                <th>
-                                    <tr>
-                                        <td>No</td>
-                                        <td>Name</td>
-                                        <td>Action</td>
-                                    </tr>
-                                </th>
-                            </thead>
-                            </th>
-                            <tbody>
-                                @foreach ($categories as $item)
-                                    <tr>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->name }}</td>
-                                        <td>
-                                            <form action="/category/{{ $item->id }}" method="POST">
-                                                <a type="button" class="btn btn-warning"
-                                                    href="/category/{{ $item->id }}/edit">Edit</a>
-                                                @method('delete')
-                                                @csrf
-                                                <button type="submit" class="btn btn-danger">Delete</button>
-                                            </form>
-                                        </td>
+        <a href="{{ route('home') }}">
+            <button type="button" class="btn btn-primary">kembali</button>
+        </a>
+    </div>
+    <br>
 
+    <table id="exampleTable">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($categories as $item)
+                <tr>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $item->name }}</td>
+                    <td class="d-flex">
+                        <a href="{{ route('category.detail', $item->id) }}" type="button"
+                            class="btn btn-primary me-3">Detail</a>
+                        {{-- <a href="{{ route('product.edit', $item->id) }}" type="button" class="btn btn-primary me-3">Edit</a>
+                        <form action="{{ route('product.destroy', $item->id) }}" method="post">
+                            @csrf
+                            <button type="submit" class="btn btn-danger me-3">Delete</button>
+                        </form> --}}
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+@endsection
 
-
-
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-
-
-                        </tr>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endsection
+@section('js')
+    <script>
+        $(document).ready(function() {
+            $('#exampleTable').DataTable();
+        });
+    </script>
+@endsection

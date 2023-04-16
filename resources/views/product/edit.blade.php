@@ -23,7 +23,7 @@
             <label for="name">price :</label>
             <br>
             <br>
-            <input type="number" name="price" placeholder="Price" value="{{ $ganti->price }}">
+            <input type="text" name="price" placeholder="Price" value="{{ $ganti->price }}">
 
         </div>
         <div class="form-floating mb-3">
@@ -31,8 +31,19 @@
             <br>
             <br>
             <input type="number" name="stocks" placeholder="Stocks" value="{{ $ganti->stocks }}">
-
         </div>
+        <div class="mb-3">
+            <label for="photo" class="form-label">Upload Photo</label>
+            <input type="file" name="photo" class="form-control" id="photo">
+        </div>
+        @if ($ganti->photo != null)
+            <div style="width:100px">
+                <img src="{{ asset('storage/' . $ganti->photo) }}" class="img-fluid" alt="...">
+
+            </div>
+        @else
+            <p class="text-info">tidak ada foto</p>
+        @endif
         <br>
         <button type="submit" class="btn btn-primary">Ubah</button>
     </form>

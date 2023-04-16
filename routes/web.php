@@ -55,9 +55,10 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/category/{id}/edit', [CategoryController::class, 'edit'])->name('category.edit');
     Route::put('/category/{id}', [CategoryController::class, 'update'])->name('category.edit');
     Route::delete('/category/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
+    Route::get('/category/detail/{id}', [CategoryController::class,'detail'])->name('category.detail');
 
     //transaction
-     Route::get('/home/transaction', [TransactionController::class,'index'])->name('transaction.index');
+    //  Route::get('/home/transaction', [TransactionController::class,'index'])->name('transaction.index');
 
      //product
      Route::get('/home/product', [ProductController::class,'index'])->name('product.index');
