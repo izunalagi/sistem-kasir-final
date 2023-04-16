@@ -37,7 +37,7 @@
 
                     <td>
                         @if ($item->photo != null)
-                            <div style="width:200px">
+                            <div style="width:100px">
                                 <img src="{{ asset('storage/' . $item->photo) }}" class="img-fluid" alt="...">
                             </div>
                         @else
