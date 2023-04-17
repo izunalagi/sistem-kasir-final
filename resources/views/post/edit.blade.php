@@ -7,13 +7,13 @@
 
 @section('isi')
     <br>
-    <a href="{{ route('post.data') }}">
+    <a href="{{ route('adminpost.data') }}">
         <button type="button" class="btn btn-primary">Kembali</button>
     </a>
     <br>
     <br>
 
-    <form action="/post/{{ $ganti->id }}" method="POST">
+    <form action="{{ route('admin.post.update', $ganti->id) }}" method="POST">
         @csrf
         @method('put')
         <div class="form-floating mb-3">

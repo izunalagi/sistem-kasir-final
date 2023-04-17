@@ -16,7 +16,7 @@
 
                     <div>
 
-                        <a href="{{ route('post.create') }}">
+                        <a href="{{ route('admin.post.create') }}">
                             <button type="button" class="btn btn-primary">Buat</button>
                         </a>
 
@@ -48,9 +48,9 @@
                                         <td>{{ $item->title }}</td>
                                         <td>{{ $item->description }}</td>
                                         <td>
-                                            <form action="/post/{{ $item->id }}" method="POST">
+                                            <form action="{{ route('admin.post.destroy', $item->id) }}" method="POST">
                                                 <a type="button" class="btn btn-warning"
-                                                    href="/post/{{ $item->id }}/edit">Edit</a>
+                                                    href="{{ route('admin.post.edit', $item->id) }}">Edit</a>
                                                 @method('delete')
                                                 @csrf
                                                 <button type="submit" class="btn btn-danger">Delete</button>

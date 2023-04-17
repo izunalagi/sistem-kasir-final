@@ -9,6 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
+    <link rel="shortcut icon" href="fabicon.jpeg" type="image/x-icon">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -27,15 +28,16 @@
                 </a>
 
                 <ul class="nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href={{ route('post.index') }}>Post Data</a>
-                    </li>
+                    {{-- <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href={{ route('admin.post.index') }}>Post
+                            Data</a>
+                    </li> --}}
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('buyer.index') }}">Buyers</a>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                    </li>
+                    </li> --}}
                 </ul>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -71,6 +73,7 @@
                                     {{ Auth::user()->name }}
                                 </a>
 
+
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
@@ -81,7 +84,13 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
-                                    <a class="dropdown-item" href="{{ route('dashboard.admin') }}">Dashboard</a>
+                                    @auth
+                                        @if (Auth::user()->userRole->role->name == 'admin')
+                                            <a class="dropdown-item" href="{{ route('admin.dashboard.admin') }}">Dashboard</a>
+                                        @endif
+
+                                    @endauth
+
                             </li>
                             </li>
                         @endguest

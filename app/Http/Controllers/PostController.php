@@ -28,21 +28,21 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        
-        $post =Post::create([
+
+        $post = Post::create([
             'title' => $data['title'],
             'description' => $data['description'],
         ]);
 
-        return redirect()->route('post.data')->with('success', 'Data Berhasil Diubah');
-        
-        return redirect()->route('post.data');
+        return redirect()->route('admin.post.data')->with('success', 'Data Berhasil Diubah');
+
+        return redirect()->route('admin.post.data');
     }
 
     public function edit($id)
     {
         $ganti = Post::find($id);
-        return view('post.edit',compact(['ganti']));
+        return view('post.edit', compact(['ganti']));
     }
 
     public function update($id, Request $request)
@@ -50,14 +50,13 @@ class PostController extends Controller
         $ganti = Post::find($id);
         $input = $request->all();
         $ganti->update($input);
-        return redirect()->route('post.data')->with('success', 'Data Berhasil Diubah');
+        return redirect()->route('admin.post.data')->with('success', 'Data Berhasil Diubah');
     }
 
     public function  destroy($id)
     {
         $ganti = Post::find($id);
         $ganti->delete();
-        return redirect()->route('post.data')->with('success', 'Data Berhasil Dihapus'); 
+        return redirect()->route('admin.post.data')->with('success', 'Data Berhasil Dihapus');
     }
-        
 }

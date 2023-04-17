@@ -27,7 +27,7 @@
                             class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="{{ route('home') }}"" class="nav-link"> Back To Home</a>
+                    <a href="{{ route('home') }}" class="nav-link"> <i class="fas fa-home"> go to user home</i> </a>
                 </li>
                 {{-- <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
@@ -169,7 +169,7 @@
             <a href="{{ asset('/') }}index3.html" class="brand-link">
                 <img src="{{ asset('/') }}dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">Welcome Owner</span>
+                <span class="brand-text font-weight-light">Welcome {{ Auth::user()->name }} </span>
             </a>
 
             <!-- Sidebar -->
@@ -179,8 +179,8 @@
                     <div class="image">
                         <img src="{{ asset('/') }}dist/img/1.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
-                    <div class="info">
-                        <a href="#" class="d-block">IZUNA AJA</a>
+                    <div class="info" style="color:white">
+                        {{ Auth::user()->name }}
                     </div>
                 </div>
 

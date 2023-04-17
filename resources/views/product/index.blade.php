@@ -16,7 +16,7 @@
 
                     <div>
 
-                        <a href="{{ route('product.create') }}">
+                        <a href="{{ route('admin.product.create') }}">
                             <button type="button" class="btn btn-primary">Buat</button>
                         </a>
 
@@ -60,9 +60,9 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <form action="/product/{{ $item->id }}" method="POST">
+                                            <form action="{{ route('admin.product.destroy', $item->id) }}" method="POST">
                                                 <a type="button" class="btn btn-warning"
-                                                    href="/product/{{ $item->id }}/edit">Edit</a>
+                                                    href="{{ route('admin.product.edit', $item->id) }}/edit">Edit</a>
                                                 @method('delete')
                                                 @csrf
                                                 <button type="submit" class="btn btn-danger">Delete</button>

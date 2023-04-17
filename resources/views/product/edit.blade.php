@@ -3,13 +3,13 @@
 
 @section('isi')
     <br>
-    <a href="{{ route('product.index') }}">
+    <a href="{{ route('admin.product.index') }}">
         <button type="button" class="btn btn-primary">Kembali</button>
     </a>
     <br>
     <br>
 
-    <form action="/product/{{ $ganti->id }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.product.update', $ganti->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('put')
         <div class="form-floating mb-3">

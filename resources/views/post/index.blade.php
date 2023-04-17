@@ -13,7 +13,7 @@
 
 
 
-                        <a href="{{ route('home') }}">
+                        <a href="{{ route('admin.post.index') }}">
                             <button type="button" class="btn btn-primary">kembali</button>
                         </a>
                     </div>
