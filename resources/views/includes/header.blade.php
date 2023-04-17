@@ -72,7 +72,13 @@
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
-                        <a class="dropdown-item" href="{{ route('dashboard.admin') }}">Dashboard</a>
+                        @auth
+                            @if (Auth::user()->userRole->role->name == 'admin')
+                                <a class="dropdown-item" href="{{ route('admin.dashboard.admin') }}">Dashboard</a>
+                            @endif
+
+                        @endauth
+
 
                     </div>
                 </li>
