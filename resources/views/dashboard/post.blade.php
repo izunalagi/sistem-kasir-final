@@ -1,30 +1,32 @@
 @extends('dashboard.admin')
 
 @section('judul')
-    Post Data
+    List Users
 @endsection
 
 @section('isi')
-    <div class="card">
-        <div class="card-header">
-            <h3 class="card-title">
-                POST DATA
-            </h3>
-
-            <div class="card-tools">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                    <i class="fas fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-        </div>
-        <div class="card-body">
-            gaero cok
-        </div>
-        <!-- /.card-body -->
-
-        <!-- /.card-footer-->
-    </div>
+    <table class="table table-borderless">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        @foreach ($users as $user)
+            <tbody>
+                <tr>
+                    <th scope="row">{{ $loop->iteration }}</th>
+                    <td>{{ $user->name }}</td>
+                    <td>{{ $user->email }}</td>
+                    <td>
+                        <form action="">
+                            <button class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        @endforeach
+    </table>
 @endsection

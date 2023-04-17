@@ -6,13 +6,13 @@
 
 @section('isi')
     <br>
-    <a href="{{ route('post.data') }}">
+    <a href="{{ route('admin.post.data') }}">
         <button type="button" class="btn btn-primary">Kembali</button>
     </a>
     <br>
     <br>
 
-    <form action="{{ route('post.store') }}" method="post">
+    <form action="{{ route('admin.post.store') }}" method="post">
         @csrf
         <div class="form-floating mb-3">
             <label for="title">Title :</label>

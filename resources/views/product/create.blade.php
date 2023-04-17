@@ -2,13 +2,13 @@
 
 @section('isi')
     <br>
-    <a href="{{ route('product.index') }}">
+    <a href="{{ route('admin.product.index') }}">
         <button type="button" class="btn btn-primary">Kembali</button>
     </a>
     <br>
     <br>
 
-    <form action="{{ route('product.store') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('admin.product.store') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="form-floating mb-3">
             <label for="name">name :</label>

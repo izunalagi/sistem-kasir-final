@@ -3,7 +3,7 @@
         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
         <li class="nav-item">
-            <a href="{{ url('/dashboard/admin/post') }}" class="nav-link">
+            <a href="{{ route('admin.dashboard.post') }}" class="nav-link">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
                     Dashboard
@@ -12,7 +12,7 @@
             </a>
 
         <li class="nav-item">
-            <a href="{{ route('post.data') }}" class="nav-link">
+            <a href="{{ route('admin.post.data') }}" class="nav-link">
                 <i class="nav-icon fas fa-users"></i>
                 <p>
                     Post Data
@@ -30,7 +30,7 @@
             </a>
 
         <li class="nav-item">
-            <a href="{{ route('product.index') }}" class="nav-link">
+            <a href="{{ route('admin.product.index') }}" class="nav-link">
                 <i class="nav-icon fas fa-users"></i>
                 <p>
                     Product
