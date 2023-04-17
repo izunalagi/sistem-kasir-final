@@ -8,19 +8,28 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+
     <title>{{ config('app.name', 'Laravel') }}</title>
-    <link rel="shortcut icon" href="fabicon.jpeg" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.jpeg" type="image/x-icon">
+
+    <title>@yield('title')</title>
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    @stack('styles')
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+    @yield('scripts')
 </head>
 
 <body>
     <div id="app">
+
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -99,10 +108,18 @@
             </div>
         </nav>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
+        @include('includes.header')
+        <div class="container">
+            <main class="pt-4">
+                @yield('content')
+            </main>
+        </div>
     </div>
+
+    @yield('js')
+
+
+    @stack('script')
 </body>
 
 </html>

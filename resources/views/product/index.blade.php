@@ -35,6 +35,7 @@
                                         <td>Name</td>
                                         <td>price</td>
                                         <td>stocks</td>
+                                        <td>category</td>
                                         <td>photo</td>
                                         <td>action</td>
                                     </tr>
@@ -48,6 +49,7 @@
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->price }}</td>
                                         <td>{{ $item->stocks }}</td>
+                                        <td>{{ $item->category_id }}</td>
                                         <td>
                                             @if ($item->photo != null)
                                                 <div style="width:100px">
