@@ -5,15 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Buyer extends Model
+class TransactionDetail extends Model
 {
-    use HasFactory;
-
-    protected $table = 'buyers';
+    protected $table = 'product_details';
     protected $guarded = ['id'];
+    use HasFactory;
 
     public function fkTransaction()
     {
-    return $this->hasMany(Transaction::class,'buyer_id','id');
+    return $this->belongsTo(Transaction::class,'transaction_id','id');
     }
 }

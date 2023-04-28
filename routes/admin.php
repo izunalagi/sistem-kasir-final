@@ -15,13 +15,13 @@ Route::middleware(EnsureAuthAdmin::class)->group(function () {
     Route::put('/product/{id}', [ProductController::class, 'update'])->name('product.update');
     Route::delete('/product/{id}', [ProductController::class, 'destroy'])->name('product.destroy');
 
-    //post
-    Route::get('/home/post', [PostController::class, 'index'])->name('post.index');
-    Route::get('/post/create', [PostController::class, 'create'])->name('post.create');
-    Route::post('/post/store', [PostController::class, 'store'])->name('post.store');
-    Route::get('/post/{id}/edit', [PostController::class, 'edit'])->name('post.edit');
-    Route::put('/post/{id}', [PostController::class, 'update'])->name('post.update');
-    Route::delete('/post/{id}', [PostController::class, 'destroy'])->name('post.destroy');
+    // //post
+    // Route::get('/home/post', [PostController::class, 'index'])->name('post.index');
+    // Route::get('/post/create', [PostController::class, 'create'])->name('post.create');
+    // Route::post('/post/store', [PostController::class, 'store'])->name('post.store');
+    // Route::get('/post/{id}/edit', [PostController::class, 'edit'])->name('post.edit');
+    // Route::put('/post/{id}', [PostController::class, 'update'])->name('post.update');
+    // Route::delete('/post/{id}', [PostController::class, 'destroy'])->name('post.destroy');
 
 
     //dashboard

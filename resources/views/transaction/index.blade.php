@@ -40,7 +40,7 @@
                                 @foreach ($transactions as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->buyers_id }}</td>
+                                        <td>{{ $item->buyer_id }}</td>
                                         <td>{{ $item->date }}</td>
                                         {{-- <td>
                                             <form action="/post/{{ $item->id }}" method="POST">

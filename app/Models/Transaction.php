@@ -17,8 +17,13 @@ class Transaction extends Model
 
     protected $guarded = ['id'];
 
-    public function buyers()
-    {   
-        return $this->hasMany('App\Buyer');
-    }
+     public function fkBuyer()
+     {
+     return $this->belongsTo(Transaction::class,'buyer_id','id');
+     }
+
+     public function fkTransactionDetail()
+     {
+     return $this->hasOne(TransactionDetail::class,'transaction_id','id');
+     }
 }

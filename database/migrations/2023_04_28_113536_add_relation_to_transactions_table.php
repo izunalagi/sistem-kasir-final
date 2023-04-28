@@ -11,13 +11,11 @@ return new class extends Migration
      *
      * @return void
      */
-    public function up(): void
+    public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->text('description');
-            $table->timestamps();
+        Schema::table('transactions', function (Blueprint $table) {
+            $table->unsignedBigInteger('buyer_id')->nullable();
+            $table->foreign('buyer_id')->references('id')->on('buyers');
         });
     }
 
@@ -28,6 +26,8 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('transactions', function (Blueprint $table) {
+            $table->dropForeign(['buyer_id']);
+        });
     }
 };
