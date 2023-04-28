@@ -19,7 +19,8 @@
                                 href="{{ route('category.index') }}">Product</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
+                            <a class="nav-link active" aria-current="page"
+                                href="{{ route('transaction.index') }}">Transaction</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Pricing</a>

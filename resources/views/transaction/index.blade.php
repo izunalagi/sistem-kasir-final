@@ -16,33 +16,33 @@
                             <button type="button" class="btn btn-primary">Buat</button>
                         </a> --}}
 
-                        {{-- <a href="{{ route('home') }}">
-        <button type="button" class="btn btn-primary">kembali</button>
-    </a>
-</div> --}}
+                        <a href="{{ route('home') }}">
+                            <button type="button" class="btn btn-primary">kembali</button>
+                        </a>
+                    </div>
 
 
 
-                        <table class="table table-bordered">
-                            <thead>
-                                <th>
-                                    <tr>
-                                        <td>No</td>
-                                        <td>buyer</td>
-                                        <td>date</td>
+                    <table class="table table-bordered">
+                        <thead>
+                            <th>
+                                <tr>
+                                    <td>No</td>
+                                    <td>buyer</td>
+                                    <td>date</td>
 
 
-                                    </tr>
-                                </th>
-                            </thead>
+                                </tr>
                             </th>
-                            <tbody>
-                                @foreach ($transactions as $item)
-                                    <tr>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->buyer_id }}</td>
-                                        <td>{{ $item->date }}</td>
-                                        {{-- <td>
+                        </thead>
+                        </th>
+                        <tbody>
+                            @foreach ($transactions as $item)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $item->buyer_id }}</td>
+                                    <td>{{ $item->date }}</td>
+                                    {{-- <td>
                                             <form action="/post/{{ $item->id }}" method="POST">
                                                 <a type="button" class="btn btn-warning"
                                                     href="/post/{{ $item->id }}/edit">Edit</a>
@@ -55,15 +55,15 @@
 
 
 
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
 
 
-                        </tr>
-                    </div>
+                    </tr>
                 </div>
             </div>
         </div>
-    @endsection
+    </div>
+@endsection
