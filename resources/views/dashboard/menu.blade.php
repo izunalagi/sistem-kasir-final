@@ -12,10 +12,10 @@
             </a>
 
         <li class="nav-item">
-            <a href="{{ route('admin.post.data') }}" class="nav-link">
+            <a href="{{ route('transaction.index') }}" class="nav-link">
                 <i class="nav-icon fas fa-users"></i>
                 <p>
-                    Post Data
+                    Transaction
                     <i class="right fas fa-angle-left"></i>
                 </p>
             </a>
