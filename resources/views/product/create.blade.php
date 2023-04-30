@@ -29,6 +29,12 @@
             <input type="number" name="stocks" placeholder="Stocks">
         </div>
         <div class="form-floating mb-3">
+            <label for="category">category :</label>
+            <br>
+            <br>
+            <input type="number" name="category" placeholder="Category">
+        </div>
+        <div class="form-floating mb-3">
             <label for="photo">Upload Photo :</label>
             <br>
             <br>

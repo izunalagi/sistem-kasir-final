@@ -30,6 +30,7 @@
                                     <td>No</td>
                                     <td>buyer</td>
                                     <td>date</td>
+                                    <td>Status</td>
 
 
                                 </tr>
@@ -42,15 +43,11 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->buyer_id }}</td>
                                     <td>{{ $item->date }}</td>
-                                    {{-- <td>
-                                            <form action="/post/{{ $item->id }}" method="POST">
-                                                <a type="button" class="btn btn-warning"
-                                                    href="/post/{{ $item->id }}/edit">Edit</a>
-                                                @method('delete')
-                                                @csrf
-                                                <button type="submit" class="btn btn-danger">Delete</button>
-                                            </form>
-                                        </td> --}}
+                                    <td>
+                                        <div class="d-grid gap-2 col-6 mx-auto">
+                                            <button class="btn btn-warning" type="button">Konfirmasi Pesanan</button>
+                                        </div>
+                                    </td>
 
 
 

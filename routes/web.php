@@ -44,6 +44,7 @@ Route::middleware(EnsureAuthCustomer::class)->group(function () {
     Route::put('/category/{id}', [CategoryController::class, 'update'])->name('category.edit');
     Route::delete('/category/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
     Route::get('/category/detail/{id}', [CategoryController::class,'detail'])->name('category.detail');
+    Route::get('/dashboard/category', [CategoryController::class, 'crud'])->name('category.crud');
 
     //transaction
 

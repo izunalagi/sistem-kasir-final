@@ -3,7 +3,7 @@
 
 @section('isi')
     <br>
-    <a href="{{ route('category.index') }}">
+    <a href="{{ route('category.crud') }}">
         <button type="button" class="btn btn-primary">Kembali</button>
     </a>
     <br>

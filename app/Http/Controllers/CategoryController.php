@@ -26,6 +26,13 @@ class CategoryController extends Controller
      return view('category.detail',compact('category'));
      }
 
+      public function crud(Request $request)
+      {
+      $category = Category::all();
+
+      return view('category.crud',compact('category'));
+      }
+
     public function create(Request $request)
     {
     return view('category.create');
@@ -39,9 +46,9 @@ class CategoryController extends Controller
     'name' => $data['name'],
     ]);
 
-    return redirect()->route('category.index')->with('success', 'Data Berhasil Diubah');
+    return redirect()->route('category.crud')->with('success', 'Data Berhasil Diubah');
 
-    return redirect()->route('category.index');
+    return redirect()->route('category.crud');
     }
 
     public function edit($id)
@@ -55,14 +62,14 @@ class CategoryController extends Controller
     $ganti = Category::find($id);
     $input = $request->all();
     $ganti->update($input);
-    return redirect()->route('category.index')->with('success', 'Data Berhasil Diubah');
+    return redirect()->route('category.crud')->with('success', 'Data Berhasil Diubah');
     }
 
     public function destroy($id)
     {
     $ganti =Category::find($id);
     $ganti->delete();
-    return redirect()->route('category.index')->with('success', 'Data Berhasil Dihapus');
+    return redirect()->route('category.crud')->with('success', 'Data Berhasil Dihapus');
     }
 
 }
