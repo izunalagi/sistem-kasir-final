@@ -49,7 +49,7 @@
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->price }}</td>
                                         <td>{{ $item->stocks }}</td>
-                                        <td>{{ $item->category_id }}</td>
+                                        <td>{{ $item->fkCategory->name }}</td>
                                         <td>
                                             @if ($item->photo != null)
                                                 <div style="width:100px">

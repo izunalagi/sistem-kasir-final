@@ -13,7 +13,7 @@
 
         <li class="nav-item">
             <a href="{{ route('transaction.index') }}" class="nav-link">
-                <i class="nav-icon fas fa-users"></i>
+                <i class="nav-icon fas fa-industry"></i>
                 <p>
                     Transaction
                     <i class="right fas fa-angle-left"></i>

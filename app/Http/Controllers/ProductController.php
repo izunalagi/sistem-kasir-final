@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -16,8 +17,12 @@ class ProductController extends Controller
 
     public function create(Request $request)
     {
-        return view('product.create');
+       ;
+        
+        $categories = Category::all();
+        return view('product.create', compact('categories'));
     }
+
 
     public function store(Request $request)
     {
@@ -32,6 +37,7 @@ class ProductController extends Controller
             'name' => $request->name,
             'price' => $request->price,
             'stocks' => $request->stocks,
+         
             'photo' => $photo_path
         ]);
 
@@ -58,6 +64,7 @@ class ProductController extends Controller
         $ganti->name = $request->name;
         $ganti->price = $request->price;
         $ganti->stocks = $request->stocks;
+        
         $ganti->photo = $photo_path;
         $ganti->save();
         return redirect()->route('admin.product.index')->with('success', 'Data Berhasil Diubah');

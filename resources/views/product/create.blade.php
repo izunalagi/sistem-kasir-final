@@ -30,9 +30,16 @@
         </div>
         <div class="form-floating mb-3">
             <label for="category">category :</label>
+            <select name="category_id" id="">
+                @foreach ($categories as $item)
+                    {
+                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                    }
+                @endforeach
+            </select>
             <br>
             <br>
-            <input type="number" name="category" placeholder="Category">
+
         </div>
         <div class="form-floating mb-3">
             <label for="photo">Upload Photo :</label>
