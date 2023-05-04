@@ -17,7 +17,7 @@ class ProductController extends Controller
 
     public function create(Request $request)
     {
-       ;
+       
         
         $categories = Category::all();
         return view('product.create', compact('categories'));
@@ -37,7 +37,7 @@ class ProductController extends Controller
             'name' => $request->name,
             'price' => $request->price,
             'stocks' => $request->stocks,
-         
+            'category_id' => $request->category_id,
             'photo' => $photo_path
         ]);
 
@@ -64,7 +64,7 @@ class ProductController extends Controller
         $ganti->name = $request->name;
         $ganti->price = $request->price;
         $ganti->stocks = $request->stocks;
-        
+        $ganti->category_id = $request->category_id;
         $ganti->photo = $photo_path;
         $ganti->save();
         return redirect()->route('admin.product.index')->with('success', 'Data Berhasil Diubah');

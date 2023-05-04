@@ -18,7 +18,7 @@
                             <a class="nav-link active" aria-current="page"
                                 href="{{ route('category.index') }}">Product</a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link active" aria-current="page"
                                 href="{{ route('transaction.index') }}">Transaction</a>
                         </li>
@@ -35,7 +35,7 @@
                                 <li><a class="dropdown-item" href="#">Another action</a></li>
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
             </div>

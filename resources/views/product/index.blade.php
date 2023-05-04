@@ -50,6 +50,8 @@
                                         <td>{{ $item->price }}</td>
                                         <td>{{ $item->stocks }}</td>
                                         <td>{{ $item->fkCategory->name }}</td>
+                                        {{-- <td>{{ $item->category_id --}}
+
                                         <td>
                                             @if ($item->photo != null)
                                                 <div style="width:100px">

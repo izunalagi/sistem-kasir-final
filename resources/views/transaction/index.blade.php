@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('dashboard.admin')
 
 
-@section('content')
+@section('isi')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -41,11 +41,11 @@
                             @foreach ($transactions as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $item->buyer_id }}</td>
+                                    <td>{{ $item->fkBuyer->name }}</td>
                                     <td>{{ $item->date }}</td>
                                     <td>
                                         <div class="d-grid gap-2 col-6 mx-auto">
-                                            <button class="btn btn-warning" type="button">Konfirmasi Pesanan</button>
+                                            <button class="btn btn-warning" type="button">Konfirmasi</button>
                                         </div>
                                     </td>
 

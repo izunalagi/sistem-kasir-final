@@ -4,9 +4,9 @@
                with font-awesome or any other icon font library -->
         <li class="nav-item">
             <a href="{{ route('admin.dashboard.post') }}" class="nav-link">
-                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <i class="nav-icon fas fa-users"></i>
                 <p>
-                    Dashboard
+                    List User
                     <i class="right fas fa-angle-left"></i>
                 </p>
             </a>
@@ -34,6 +34,17 @@
                 <i class="nav-icon fas fa-users"></i>
                 <p>
                     Product
+                    <i class="right fas fa-angle-left"></i>
+                </p>
+            </a>
+
+        </li>
+
+        <li class="nav-item">
+            <a href="{{ route('buyer.index') }}" class="nav-link">
+                <i class="nav-icon fas fa-users"></i>
+                <p>
+                    Buyer
                     <i class="right fas fa-angle-left"></i>
                 </p>
             </a>

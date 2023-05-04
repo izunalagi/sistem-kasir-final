@@ -19,7 +19,7 @@ class Transaction extends Model
 
      public function fkBuyer()
      {
-     return $this->belongsTo(Transaction::class,'buyer_id','id');
+     return $this->belongsTo(Buyer::class,'buyer_id','id');
      }
 
      public function fkTransactionDetail()
