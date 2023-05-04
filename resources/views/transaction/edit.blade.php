@@ -9,10 +9,11 @@
     <br>
     <br>
 
-    <form action="{{ route('transaction.store') }}" method="post">
+    <form action="{{ route('transaction.update', $ganti->id) }}" method="POST">
         @csrf
+        @method('put')
         <div class="form-floating mb-3">
-            <label for="buyer">name :</label>
+            <label for="buyer">Name :</label>
             <select name="buyer_id" id="">
                 @foreach ($buyers as $item)
                     {
@@ -20,17 +21,13 @@
                     }
                 @endforeach
             </select>
+            <div class="form-floating mb-3">
+                <label for="date">Date :</label>
+                <input type="date" name="date" placeholder="Date" value="{{ $ganti->date }}">
+
+            </div>
             <br>
-            <br>
-        </div>
-        <div class="form-floating mb-3">
-            <label for="date">date :</label>
-
-            <input type="date" name="date" placeholder="Date">
-
-        </div>
-
-        <button type="submit" class="btn btn-primary">Kirim</button>
+            <button type="submit" class="btn btn-primary">Ubah</button>
     </form>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"

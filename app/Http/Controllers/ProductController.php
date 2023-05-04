@@ -46,26 +46,33 @@ class ProductController extends Controller
 
     public function edit($id)
     {
+        $categories = Category::all();
         $ganti = Product::find($id);
-        return view('product.edit', compact(['ganti']));
+        return view('product.edit', compact('ganti', 'categories'));
     }
 
     public function update($id, Request $request)
     {
-
+        
         $file = $request->file('photo');
-        $filename = time() . '.' .
+        if($file != null){
+            $filename = time() . '.' .
             $file->getClientOriginalExtension();
 
-        $photo_path = $request->file('photo')->storeAs('public/products', $filename);
-        $photo_path = str_replace('public/', '', $photo_path);
+            $photo_path = $request->file('photo')->storeAs('public/products', $filename);
+            $photo_path = str_replace('public/', '', $photo_path);
+        }
+        
 
         $ganti = Product::find($id);
         $ganti->name = $request->name;
         $ganti->price = $request->price;
         $ganti->stocks = $request->stocks;
         $ganti->category_id = $request->category_id;
-        $ganti->photo = $photo_path;
+        if (isset($photo_path)) {
+            $ganti->photo = $photo_path;
+        }
+        
         $ganti->save();
         return redirect()->route('admin.product.index')->with('success', 'Data Berhasil Diubah');
     }

@@ -32,6 +32,19 @@
             <br>
             <input type="number" name="stocks" placeholder="Stocks" value="{{ $ganti->stocks }}">
         </div>
+        <div class="form-floating mb-3">
+            <label for="category">category :</label>
+            <select name="category_id" id="">
+                @foreach ($categories as $item)
+                    {
+                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                    }
+                @endforeach
+            </select>
+            <br>
+            <br>
+
+        </div>
         <div class="mb-3">
             <label for="photo" class="form-label">Upload Photo</label>
             <input type="file" name="photo" class="form-control" id="photo">

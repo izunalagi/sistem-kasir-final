@@ -2,11 +2,13 @@
 
 use App\Http\Controllers\BuyerController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TransactionController;
 use App\Http\Middleware\EnsureAuthCustomer;
+use App\Models\Transaction;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,6 +51,14 @@ Route::middleware(EnsureAuthCustomer::class)->group(function () {
     //transaction
 
     Route::get('/home/transaction', [TransactionController::class, 'index'])->name('transaction.index');
+    Route::get('/home/transaction/create', [TransactionController::class, 'create'])->name('transaction.create');
+    Route::post('/transaction/store', [TransactionController::class, 'store'])->name('transaction.store');
+    Route::get('/transaction/edit/{id}', [TransactionController::class, 'edit'])->name('transaction.edit');
+    Route::put('/transaction/update/{id}', [TransactionController::class, 'update'])->name('transaction.update');
+    Route::delete('/transaction/delete/{id}', [TransactionController::class, 'destroy'])->name('transaction.destroy');
+
+    Route::get('/home/transaction/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
+
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
     //  Route::get('/home/transaction', [TransactionController::class,'index'])->name('transaction.index');

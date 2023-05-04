@@ -7,8 +7,8 @@
 
 @section('isi')
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
+        <div class="row ">
+            <div class="col">
                 <div class="card">
                     <div class="card-header">{{ __('Data') }}</div>
 
@@ -47,7 +47,7 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->name }}</td>
-                                        <td>{{ $item->price }}</td>
+                                        <td>{{ $item->price }}K</td>
                                         <td>{{ $item->stocks }}</td>
                                         <td>{{ $item->fkCategory->name }}</td>
                                         {{-- <td>{{ $item->category_id --}}
