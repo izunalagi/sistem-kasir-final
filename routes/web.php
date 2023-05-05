@@ -58,7 +58,8 @@ Route::middleware(EnsureAuthCustomer::class)->group(function () {
     Route::put('/transaction/update/{id}', [TransactionController::class, 'update'])->name('transaction.update');
     Route::delete('/transaction/delete/{id}', [TransactionController::class, 'destroy'])->name('transaction.destroy');
 
-    Route::get('/home/transaction/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
+    Route::get('/home/checkout/transaction/{id}', [CheckoutController::class, 'index'])->name('checkout.index');
+    Route::get('/home/checkout/transaction/create', [CheckoutController::class, 'create'])->name('checkout.create');
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
