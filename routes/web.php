@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TransactionController;
 use App\Http\Middleware\EnsureAuthCustomer;
+use App\Http\Controllers\frontend\FrontendController;
 use App\Models\Transaction;
 
 /*
@@ -35,17 +36,17 @@ Route::middleware(EnsureAuthCustomer::class)->group(function () {
     Route::get('/buyer/create', [BuyerController::class, 'create'])->name('buyer.create');
     Route::post('/buyer/store', [BuyerController::class, 'store'])->name('buyer.store');
     Route::get('/buyer/{id}/edit', [BuyerController::class, 'edit'])->name('buyer.edit');
-    Route::put('/buyer/{id}', [BuyerController::class, 'update'])->name('buyer.edit');
+    Route::put('/buyer/{id}', [BuyerController::class, 'update'])->name('buyer.update');
     Route::delete('/buyer/{id}', [BuyerController::class, 'destroy'])->name('buyer.destroy');
 
     //category
     Route::get('/home/category', [CategoryController::class, 'index'])->name('category.index');
     Route::get('/category/create', [CategoryController::class, 'create'])->name('category.create');
     Route::post('/category/store', [CategoryController::class, 'store'])->name('category.store');
-    Route::get('/category/{id}/edit', [CategoryController::class, 'edit'])->name('category.edit');
-    Route::put('/category/{id}', [CategoryController::class, 'update'])->name('category.edit');
-    Route::delete('/category/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
-    Route::get('/category/detail/{id}', [CategoryController::class,'detail'])->name('category.detail');
+    Route::get('/category/edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
+    Route::put('/category/update/{id}', [CategoryController::class, 'update'])->name('category.update');
+    Route::delete('/category/delete/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
+    Route::get('/category/detail/{id}', [CategoryController::class, 'detail'])->name('category.detail');
     Route::get('/dashboard/category', [CategoryController::class, 'crud'])->name('category.crud');
 
     //transaction
@@ -62,9 +63,12 @@ Route::middleware(EnsureAuthCustomer::class)->group(function () {
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+    //catalouge
+    Route::get('/catalouge', [FrontendController::class, 'index'])->name('catalouge.index');
+    Route::get('/catalouge/detail/{id}', [FrontendController::class, 'detail'])->name('catalouge.detail');
     //  Route::get('/home/transaction', [TransactionController::class,'index'])->name('transaction.index');
 
-   
+
 });
 
 Auth::routes();

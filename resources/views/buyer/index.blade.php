@@ -6,70 +6,54 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header">{{ __('Data') }}</div>
+                    <div class="card-body">
+                        <div class="href mb-3">
 
-                    <br>
+                            <a href="{{ route('buyer.create') }}">
+                                <button type="button" class="btn btn-primary mp-3">Buat</button>
+                            </a>
 
-                    <div>
+                            <a href="{{ route('home') }}">
+                                <button type="button" class="btn btn-primary ">kembali</button>
+                            </a>
+                        </div>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>name</th>
+                                    <th>age</th>
+                                    <th>address</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
 
-
-                        <a href="{{ route('buyer.create') }}">
-                            <button type="button" class="btn btn-primary">Buat</button>
-                        </a>
-
-                        <a href="{{ route('home') }}">
-                            <button type="button" class="btn btn-primary">kembali</button>
-                        </a>
+                            <tbody>
+                                @foreach ($buyers as $item)
+                                    <tr>
+                                        <th>{{ $loop->iteration }}</th>
+                                        <td>{{ $item->name }}</td>
+                                        <td>{{ $item->age }}</td>
+                                        <td>{{ $item->address }}</td>
+                                        <td>
+                                            <form action="/buyer/{{ $item->id }}" method="POST">
+                                                <a type="button" class="btn btn-warning"
+                                                    href="/buyer/{{ $item->id }}/edit">Edit</a>
+                                                @method('delete')
+                                                @csrf
+                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
-
-
-
-                    <table class="table table-bordered">
-                        <thead>
-                            <th>
-                                <tr>
-                                    <td>No</td>
-                                    <td>name</td>
-                                    <td>age</td>
-                                    <td>address</td>
-                                    <td>Action</td>
-
-
-                                </tr>
-                            </th>
-                        </thead>
-                        </th>
-                        <tbody>
-                            @foreach ($buyers as $item)
-                                <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $item->name }}</td>
-                                    <td>{{ $item->age }}</td>
-                                    <td>{{ $item->address }}</td>
-                                    <td>
-                                        <form action="/buyer/{{ $item->id }}" method="POST">
-                                            <a type="button" class="btn btn-warning"
-                                                href="/buyer/{{ $item->id }}/edit">Edit</a>
-                                            @method('delete')
-                                            @csrf
-                                            <button type="submit" class="btn btn-danger">Delete</button>
-                                        </form>
-                                    </td>
-
-
-
-
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-
-
-                    </tr>
                 </div>
             </div>
         </div>
     </div>
-    <!DOCTYPE html>
+    {{-- <!DOCTYPE html>
     <html lang="en">
 
     <head>
@@ -88,5 +72,5 @@
         <title>Posts</title>
     </head>
 
-    <body>
-    @endsection
+    <body> --}}
+@endsection

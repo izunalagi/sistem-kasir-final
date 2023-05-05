@@ -9,7 +9,7 @@
     <br>
     <br>
 
-    <form action="/category/{{ $ganti->id }}" method="POST">
+    <form action="{{ route('category.update', $ganti->id) }}" method="POST">
         @csrf
         @method('put')
         <div class="form-floating mb-3">

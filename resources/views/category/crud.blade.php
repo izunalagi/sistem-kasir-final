@@ -11,60 +11,39 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header">{{ __('Data') }}</div>
-
-                    <br>
-
-                    <div>
-
+                    <div class="card-body">
                         <a href="{{ route('category.create') }}">
-                            <button type="button" class="btn btn-primary">Buat</button>
+                            <button type="button" class="btn btn-primary mb-3">Buat</button>
                         </a>
-
-                        {{-- <a href="{{ route('home') }}">
-                            <button type="button" class="btn btn-primary">kembali</button>
-                        </a>
-                    </div> --}}
-
-
-
                         <table class="table table-bordered">
                             <thead>
-                                <th>
-                                    <tr>
-                                        <td>No</td>
-                                        <td>Name</td>
-                                        <td>action</td>
-                                    </tr>
-                                </th>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Name</th>
+                                    <th>action</th>
+                                </tr>
                             </thead>
-                            </th>
                             <tbody>
                                 @foreach ($category as $item)
                                     <tr>
-                                        <td>{{ $loop->iteration }}</td>
+                                        <th>{{ $loop->iteration }}</th>
                                         <td>{{ $item->name }}</td>
                                         <td>
                                             <form action="{{ route('category.destroy', $item->id) }}" method="POST">
                                                 <a type="button" class="btn btn-warning"
-                                                    href="{{ route('category.edit', $item->id) }}/edit">Edit</a>
+                                                    href="{{ route('category.edit', $item->id) }}">Edit</a>
                                                 @method('delete')
                                                 @csrf
                                                 <button type="submit" class="btn btn-danger">Delete</button>
                                             </form>
                                         </td>
-
-
-
-
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
-
-
-                        </tr>
                     </div>
                 </div>
             </div>
         </div>
-    @endsection
+    </div>
+@endsection

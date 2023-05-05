@@ -10,7 +10,7 @@
                     <i class="right fas fa-angle-left"></i>
                 </p>
             </a>
-
+        </li>
         <li class="nav-item">
             <a href="{{ route('transaction.index') }}" class="nav-link">
                 <i class="nav-icon fas fa-industry"></i>
@@ -19,7 +19,7 @@
                     <i class="right fas fa-angle-left"></i>
                 </p>
             </a>
-
+        </li>
         <li class="nav-item">
             <a href="{{ route('category.crud') }}" class="nav-link">
                 <i class="nav-icon fas fa-users"></i>
@@ -28,7 +28,7 @@
                     <i class="right fas fa-angle-left"></i>
                 </p>
             </a>
-
+        </li>
         <li class="nav-item">
             <a href="{{ route('admin.product.index') }}" class="nav-link">
                 <i class="nav-icon fas fa-users"></i>
@@ -45,6 +45,17 @@
                 <i class="nav-icon fas fa-users"></i>
                 <p>
                     Buyer
+                    <i class="right fas fa-angle-left"></i>
+                </p>
+            </a>
+
+        </li>
+
+        <li class="nav-item">
+            <a href="{{ route('admin.post.index') }}" class="nav-link">
+                <i class="nav-icon fas fa-users"></i>
+                <p>
+                    Post
                     <i class="right fas fa-angle-left"></i>
                 </p>
             </a>
