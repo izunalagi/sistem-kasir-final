@@ -16,4 +16,10 @@ class Category extends Model
     {
     return $this->hasMany(Product::class,'category_id','id');
     }
+
+    public function fkdetail()
+    {
+    return $this->hasMany(Transaction::class,'transaction_id','id');
+    }
+
 }

@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('dashboard.admin')
 
-@section('content')
+@section('isi')
     <br>
     <a href="{{ route('buyer.index') }}">
         <button type="button" class="btn btn-primary">Kembali</button>

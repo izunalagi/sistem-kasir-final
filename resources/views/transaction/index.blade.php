@@ -44,7 +44,7 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->fkBuyer->name }}</td>
                                     <td>{{ $item->date }}</td>
-                                    <td><a href="{{ route('checkout.index') }}">
+                                    <td><a href="{{ route('checkout.index', $item->id) }}">
                                             <button type="button" class="btn btn-info">Detail Transaksi</button>
                                         </a></td>
                                     <td>
