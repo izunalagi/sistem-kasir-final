@@ -11,43 +11,29 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header">{{ __('Data') }}</div>
-
-                    <br>
-
-                    <div>
-
+                    <div class="card-body">
                         <a href="{{ route('admin.product.create') }}">
-                            <button type="button" class="btn btn-primary">Buat</button>
+                            <button type="button" class="btn btn-primary mb-3">Buat</button>
                         </a>
-
-                        {{-- <a href="{{ route('home') }}">
-                            <button type="button" class="btn btn-primary">kembali</button>
-                        </a>
-                    </div> --}}
-
-
-
                         <table class="table table-bordered">
                             <thead>
-                                <th>
-                                    <tr>
-                                        <td>No</td>
-                                        <td>Name</td>
-                                        <td>price</td>
-                                        <td>stocks</td>
-                                        <td>category</td>
-                                        <td>photo</td>
-                                        <td>action</td>
-                                    </tr>
-                                </th>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Name</th>
+                                    <th>price</th>
+                                    <th>stocks</th>
+                                    <th>category</th>
+                                    <th>photo</th>
+                                    <th>action</th>
+                                </tr>
                             </thead>
-                            </th>
+
                             <tbody>
                                 @foreach ($products as $item)
                                     <tr>
-                                        <td>{{ $loop->iteration }}</td>
+                                        <th>{{ $loop->iteration }}</th>
                                         <td>{{ $item->name }}</td>
-                                        <td>{{ $item->price }}K</td>
+                                        <td>{{ number_format($item->price) }}K</td>
                                         <td>{{ $item->stocks }}</td>
                                         <td>{{ $item->fkCategory->name }}</td>
                                         {{-- <td>{{ $item->category_id --}}
@@ -80,11 +66,9 @@
                                 @endforeach
                             </tbody>
                         </table>
-
-
-                        </tr>
                     </div>
                 </div>
             </div>
         </div>
-    @endsection
+    </div>
+@endsection

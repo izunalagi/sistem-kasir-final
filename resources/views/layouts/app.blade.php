@@ -13,7 +13,7 @@
     <link rel="shortcut icon" href="favicon.jpeg" type="image/x-icon">
 
     <title>@yield('title')</title>
-
+    @stack('botcss')
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

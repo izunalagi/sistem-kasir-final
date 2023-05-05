@@ -29,6 +29,7 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = RouteServiceProvider::HOME;
+    // protected $redirectTo = RouteServiceProvider::CATALOUGE;
 
 
     /**
@@ -47,7 +48,7 @@ class LoginController extends Controller
         } else if ($user->UserRole->role->name == 'semiadmin') {
             return redirect('/admin/dashboard/admin');
         } else {
-            return redirect('/home');
+            return redirect('/catalouge');
         }
     }
 }
