@@ -3,24 +3,58 @@
 namespace App\Http\Controllers;
 
 use App\Models\Checkout;
+use App\Models\Product;
 use App\Models\Transaction;
 use App\Models\TransactionDetail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class CheckoutController extends Controller
 {
-     public function index(Request $request, $id)
-     {
-     $checkouts = Checkout::all();
+    public function index(Request $request, $id)
+    {
+        $products = Product::all();
+        $details = Transaction::find($id);
+        return view('checkout.index', compact('details', 'products'));
+    }
 
-     $transactions = Transaction::all();
-     $ganti = Transaction::find($id);
-     return view('checkout.index', compact('checkouts', 'transactions', 'ganti',));
-     }
+    public function create(Request $request)
+    {
+          $products = Product::find($request->product_id);
+          $total_price = 0;
+          $total_price += $products->price * $request->qty;
 
-     // public function create()
-     // {
-          
-     //      return view('checkout.create');
-     // }
+         $create = Checkout::create([
+              'product_id' => $request->product_id,
+              'total' => $total_price,
+              'qty' => $request->qty,
+              'transaction_id' => $request->transaction_id
+          ]);
+     
+          //checkout
+
+
+        return back();
+     //    return redirect()->route('checkout.index.'. $request->transaction_id);
+    }
+
+    public function update_cart($cart, Request $request)
+    {
+        $cart->update([
+            'price' => $request->price,
+        ]);
+
+        return redirect('checkout.index');
+    }
+
+    public function destroy($id)
+    {
+    $ganti = Checkout::find($id);
+      if ($ganti != null) {
+      $ganti->delete();
+      return back();
+      }
+
+  
+    }
 }

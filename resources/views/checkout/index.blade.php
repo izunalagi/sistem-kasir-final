@@ -1,88 +1,108 @@
-{{-- @extends('dashboard.admin')
-
-@section('isi')
-    @foreach ($transactions as $item)
-        <p class="text-md-start">Buyer:{{ $item->fkBuyer->name }}</p>
-    @endforeach
-@endsection --}}
-
 @extends('dashboard.admin')
 
 
 @section('isi')
-    <div class="container">
-        <div class="row ">
-            <div class="col">
+    <div class="">
+        <div class="row">
+            <div class="col-12">
                 <div class="card">
-                    <div class="card-header">{{ __('Transaksi') }}</div>
+                    <div class="card-header">
+                        <h3 class="card-title"><a href="{{ route('transaction.index') }}">
+                                <button type="button" class="btn btn-outline-success">kembali</button>
+                            </a>{{ __('Transaksi') }}</h3>
+                        <div class="card-tools">
+                            <div class="input-group input-group-sm" style="width: 150px;">
 
-                    <br>
+                                <form action="{{ route('checkout.create') }}" method="POST">
+                                    @csrf
+                                    <input class="btn btn-info mt-2" type="submit" value="Checkout">
+                                </form>
 
-                    <div>
-                        <a href="{{ route('transaction.index') }}">
-                            <button type="button" class="btn btn-outline-success">kembali</button>
-                        </a>
+
+                            </div>
+                        </div>
                     </div>
 
+                    <div class="card-body table-responsive p-0">
+                        <div class="row container">
+                            <div class="col-sm-12 col-md-6">
+                                <p class="text-md-start"><b>Buyer</b> : {{ $details->fkBuyer->name }}</p>
+                                <p class="text-md-start"><b>Date</b> : {{ $details->date }}</p>
+                                @php
+                                    $total_price = 0;
+                                @endphp
+                                @foreach ($details->fkTransactionDetail as $item)
+                                    @php
+                                        $total_price += $item->total;
+                                    @endphp
+                                @endforeach
+                                <p class="text-md-start"><b>Total Harga:</b>{{ number_format($total_price) }}K</p>
 
-                    <form action="{{ route('checkout.index', $ganti->id) }}" method="POST">
-                        <p class="text-md-start">Buyer:{{ $ganti->fkBuyer->name }}</p>
-                        <p class="text-md-start">Date:{{ $ganti->date }}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <form action="{{ route('checkout.create') }}" method="POST">
+                                        @csrf
+                                        <div class="row">
+                                            <div class="col-md-9">
+                                                <label>Minimal</label>
+                                                <select class="form-control select2 select2-hidden-accessible"
+                                                    style="width: 100%;" name="product_id">
+                                                    @foreach ($products as $item)
+                                                        {{-- {{ $selectedRole == $role->id ? (selected = 'selected') : '' }}> --}}
+                                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label>Qty</label>
+                                                <input type="number" class="form-control" name="qty" id="">
+                                                <input type="hidden" name="transaction_id" value="{{ $details->id }}">
+                                            </div>
+                                            <input class="btn btn-info mt-2" type="submit" value="Tambahkan">
 
-                    </form>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
 
-                    {{-- <a href="{{ route('checkout.create') }}">
-                        <button type="button" class="btn btn-outline-success">Pilih Pesanan</button>
-                    </a> --}}
 
-
-                    {{-- <table class="table table-bordered">
-                        <thead>
-                            <th>
+                        <table class="table table-hover text-nowrap">
+                            <thead>
                                 <tr>
-                                    <td>No</td>
-                                    <td>buyer</td>
-                                    <td>date</td>
-                                    <td>transaksi</td>
-                                    <td>Status</td>
-                                    <td>Action</td>
-
+                                    <th>No</th>
+                                    <th>Product</th>
+                                    <th>qty</th>
+                                    <th>total price</th>
+                                    <th>Action</th>
                                 </tr>
-                            </th>
-                        </thead>
-                        </th>
-                        <tbody>
-                            @foreach ($transactions as $item)
-                                <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $item->fkBuyer->name }}</td>
-                                    <td>{{ $item->date }}</td>
-                                    <td><a href="{{ route('checkout.index') }}">
-                                            <button type="button" class="btn btn-info">Detail Transaksi</button>
-                                        </a></td>
-                                    <td>
-                                        <div class="d-grid gap-2 col-6 mx-auto">
-                                            <button class="btn btn-warning" type="button">Menunggu</button>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <form action="{{ route('transaction.destroy', $item->id) }}" method="POST">
-                                            <a type="button" class="btn btn-secondary"
-                                                href="{{ route('transaction.edit', $item->id) }}">Edit</a>
-                                            @method('delete')
-                                            @csrf
-                                            <button type="submit" class="btn btn-danger">Delete</button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                @foreach ($details->fkTransactionDetail as $item)
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $item->fkProduct->name }}</td>
+                                        <td>{{ $item->qty }}</td>
+                                        <td>{{ $item->total }}K</td>
+                                        <td class="">
+                                            {{-- <a type="button" class="btn btn-secondary"
+                                                href="{{ route('transaction.edit', $item->id) }}">Edit</a> --}}
+                                            <form action="{{ route('checkout.destroy', $item->id) }}" method="POST">
+                                                @method('delete')
+                                                @csrf
+                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
 
-
-                    </tr> --}}
                 </div>
+
             </div>
         </div>
+
     </div>
 @endsection

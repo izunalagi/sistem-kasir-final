@@ -24,6 +24,7 @@ class Transaction extends Model
 
      public function fkTransactionDetail()
      {
-     return $this->hasOne(TransactionDetail::class,'transaction_id','id');
+    //  return $this->hasOne(TransactionDetail::class,'transaction_id','id');
+     return $this->hasMany(TransactionDetail::class);
      }
 }

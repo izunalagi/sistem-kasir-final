@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('transaction_id')->nullable();
             $table->foreign('transaction_id')->references('id')->on('transactions');
+            $table->integer('qty');
+            $table->string('total');
             $table->date('date');
             $table->timestamps();
         });
