@@ -2,64 +2,73 @@
 
 
 @section('isi')
-    <br>
-    <a href="{{ route('admin.product.index') }}">
-        <button type="button" class="btn btn-primary">Kembali</button>
-    </a>
-    <br>
-    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card-header">Edit Product</div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row d-flex flex-row-reverse">
 
-    <form action="{{ route('admin.product.update', $ganti->id) }}" method="POST" enctype="multipart/form-data">
-        @csrf
-        @method('put')
-        <div class="form-floating mb-3">
-            <label for="name">name :</label>
-            <br>
-            <br>
-            <input type="text" name="name" placeholder="Name" value="{{ $ganti->name }}">
+                            <a href="{{ route('admin.product.index') }}">
+                                <button type="button" class="btn btn-primary">Kembali</button>
+                            </a>
+                        </div>
 
-        </div>
-        <div class="form-floating mb-3">
-            <label for="name">price :</label>
-            <br>
-            <br>
-            <input type="text" name="price" placeholder="Price" value="{{ $ganti->price }}">
 
-        </div>
-        <div class="form-floating mb-3">
-            <label for="name">stocks :</label>
-            <br>
-            <br>
-            <input type="number" name="stocks" placeholder="Stocks" value="{{ $ganti->stocks }}">
-        </div>
-        <div class="form-floating mb-3">
-            <label for="category">category :</label>
-            <select name="category_id" id="">
-                @foreach ($categories as $item)
-                    {
-                    <option value="{{ $item->id }}">{{ $item->name }}</option>
-                    }
-                @endforeach
-            </select>
-            <br>
-            <br>
 
-        </div>
-        <div class="mb-3">
-            <label for="photo" class="form-label">Upload Photo</label>
-            <input type="file" name="photo" class="form-control" id="photo">
-        </div>
-        @if ($ganti->photo != null)
-            <div style="width:100px">
-                <img src="{{ asset('storage/' . $ganti->photo) }}" class="img-fluid" alt="...">
+                        <form action="{{ route('admin.product.update', $ganti->id) }}" method="POST"
+                            enctype="multipart/form-data">
+                            @csrf
+                            @method('put')
+                            <div class="form-floating mb-3">
+                                <label for="name">name :</label>
+                                <input type="text" name="name" class="form-control" placeholder="Name"
+                                    value="{{ $ganti->name }}">
+                            </div>
+                            <div class="form-floating mb-3">
+                                <label for="name">price :</label>
+                                <input type="text" name="price" class="form-control" placeholder="Price"
+                                    value="{{ $ganti->price }}">
+                            </div>
+                            <div class="form-floating mb-3">
+                                <label for="name">stocks :</label>
+                                <input type="number" name="stocks" class="form-control" placeholder="Stocks"
+                                    value="{{ $ganti->stocks }}">
+                            </div>
+                            <div class="form-floating mb-3">
+                                <label for="category">category :</label>
+                                <select name="category_id" id="" class="form-control">
+                                    @foreach ($categories as $item)
+                                        {
+                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                        }
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="photo" class="form-label">Upload Photo</label>
+                                <input type="file" name="photo" id="photo">
+                            </div>
+                            @if ($ganti->photo != null)
+                                <div style="width:100px">
+                                    <img src="{{ asset('storage/' . $ganti->photo) }}" class="img-fluid" alt="...">
 
+                                </div>
+                            @else
+                                <p class="text-info">tidak ada foto</p>
+                            @endif
+                            <div class="row justify-content-center">
+                                <button type="submit" class="btn btn-primary col-md-4">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-        @else
-            <p class="text-info">tidak ada foto</p>
-        @endif
-        <br>
-        <button type="submit" class="btn btn-primary">Ubah</button>
-    </form>
+        </div>
+    </div>
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">

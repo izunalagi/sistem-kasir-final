@@ -22,10 +22,10 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="form-floating mb-3">
+                            <div class="form-floating mb-4">
                                 <label for="date">date :</label>
 
-                                <input type="date" name="date" placeholder="Date" class="form-label">
+                                <input type="date" name="date" placeholder="Date" class="form-control">
 
                             </div>
                             <button type="submit" class="btn btn-primary">Kirim</button>
