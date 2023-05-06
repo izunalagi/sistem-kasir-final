@@ -8,7 +8,6 @@
                 <div class="card">
                     <div class="card-header">{{ __('Data') }}</div>
 
-                    <br>
 
                     <div class="card-body">
 
