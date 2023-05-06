@@ -23,7 +23,7 @@ use App\Models\Transaction;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('autentikasi.login');
 });
 
 Route::middleware(EnsureAuthCustomer::class)->group(function () {
@@ -61,7 +61,7 @@ Route::middleware(EnsureAuthCustomer::class)->group(function () {
     Route::get('/home/checkout/transaction/{id}', [CheckoutController::class, 'index'])->name('checkout.index');
     Route::get('/home/checkout/transaction/create', [CheckoutController::class, 'create'])->name('checkout.create');
 
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
     //catalouge
     Route::get('/catalouge', [FrontendController::class, 'index'])->name('catalouge.index');
