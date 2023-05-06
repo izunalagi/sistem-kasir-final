@@ -12,11 +12,15 @@
                             </a>{{ __('Transaksi') }}</h3>
                         <div class="card-tools">
                             <div class="input-group input-group-sm" style="width: 150px;">
+                                @if ($details->status == '0')
+                                    <form action="{{ route('checkout.checkout', $details->id) }}" method="POST">
+                                        @csrf
+                                        <input class="btn btn-info mt-2" type="submit" value="Checkout">
+                                    </form>
+                                @else
+                                    <p>Pesanan Selesai</p>
+                                @endif
 
-                                <form action="{{ route('checkout.create') }}" method="POST">
-                                    @csrf
-                                    <input class="btn btn-info mt-2" type="submit" value="Checkout">
-                                </form>
 
 
                             </div>
@@ -85,13 +89,15 @@
                                         <td>{{ $item->qty }}</td>
                                         <td>{{ $item->total }}K</td>
                                         <td class="">
-                                            {{-- <a type="button" class="btn btn-secondary"
-                                                href="{{ route('transaction.edit', $item->id) }}">Edit</a> --}}
-                                            <form action="{{ route('checkout.destroy', $item->id) }}" method="POST">
-                                                @method('delete')
-                                                @csrf
-                                                <button type="submit" class="btn btn-danger">Delete</button>
-                                            </form>
+                                            @if ($details->status == '0')
+                                                <form action="{{ route('checkout.destroy', $item->id) }}" method="POST">
+                                                    @method('delete')
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                </form>
+                                            @else
+                                                <button type="button" class="btn btn-secondary" disabled>Delete</button>
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach

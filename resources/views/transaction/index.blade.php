@@ -2,7 +2,7 @@
 
 
 @section('isi')
-      <div class="container">
+    <div class="container">
         <div class="row ">
             <div class="col">
                 <div class="card">
@@ -49,7 +49,13 @@
                                         </a></td>
                                     <td>
                                         <div class="d-grid gap-2 col-6 mx-auto">
-                                            <button class="btn btn-warning" type="button">Menunggu</button>
+
+                                            @if ($item->status == '0')
+                                                <button class="btn btn-warning" type="button">Menunggu</button>
+                                            @else
+                                                <button class="btn btn-success" type="button">Selesai</button>
+                                            @endif
+
                                         </div>
                                     </td>
                                     <td>
@@ -71,5 +77,4 @@
                 </div>
             </div>
         </div>
-    </div
-@endsection
+</div @endsection
