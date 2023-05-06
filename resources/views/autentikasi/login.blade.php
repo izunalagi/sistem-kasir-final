@@ -14,7 +14,7 @@
         body {
             background-size: cover;
             background-repeat: no-repeat;
-            background-image: url({{ asset('frontend/images/login-back-image.jpg') }});
+            background-image: url({{ asset('frontend/images/zun.jpg') }});
         }
     </style>
     <title>Login</title>

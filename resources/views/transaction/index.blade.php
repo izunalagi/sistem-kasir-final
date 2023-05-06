@@ -19,23 +19,24 @@
                         <a href="{{ route('transaction.index') }}">
                             <button type="button" class="btn btn-outline-success">kembali</button>
                         </a>
+                        <br>
+                        <br>
                     </div>
-
 
 
                     <table class="table table-bordered">
                         <thead>
-                            <th>
-                                <tr>
-                                    <td>No</td>
-                                    <td>buyer</td>
-                                    <td>date</td>
-                                    <td>transaksi</td>
-                                    <td>Status</td>
-                                    <td>Action</td>
 
-                                </tr>
-                            </th>
+                            <tr>
+                                <th>No</th>
+                                <th>buyer</th>
+                                <th>date</th>
+                                <th>transaksi</th>
+                                <th>Status</th>
+                                <th>Action</th>
+
+                            </tr>
+
                         </thead>
                         </th>
                         <tbody>
