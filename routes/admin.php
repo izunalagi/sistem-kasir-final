@@ -3,8 +3,10 @@
 use App\Http\Middleware\EnsureAuthAdmin;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DetailProductController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductController;
+use App\Models\ProductDetail;
 
 Route::middleware(EnsureAuthAdmin::class)->group(function () {
     //product
@@ -29,4 +31,13 @@ Route::middleware(EnsureAuthAdmin::class)->group(function () {
     Route::get('/dashboard/admin/post', [DashboardController::class, 'post'])->name('dashboard.post');
     Route::get('/dashboard/admin/index', [DashboardController::class, 'index'])->name('dashboard.index');
     Route::get('/dashboard/admin/data', [PostController::class, 'data'])->name('post.data');
+
+    //productdetail
+    Route::get('/dashboard/product/detail', [DetailProductController::class, 'index'])->name('productdetail.index');
+    Route::get('/dashboard/product/create', [DetailProductController::class, 'create'])->name('productdetail.create');
+    Route::post('/dashbord/product/detail/store', [DetailProductController::class, 'store'])->name('productdetail.store');
+    Route::get('/dashboard/product/detail/edit/{id}', [DetailProductController::class, 'edit'])->name('productdetail.edit');
+    Route::put('/dashboard/update/product/detail/{id}', [DetailProductController::class, 'update'])->name('productdetail.update');
+    Route::delete('/dashboard/delete/product/detail{id}', [DetailProductController::class, 'destroy'])->name('productdetail.destroy');
+
 });

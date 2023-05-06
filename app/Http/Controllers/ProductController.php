@@ -88,4 +88,6 @@ class ProductController extends Controller
         $ganti->delete();
         return redirect()->route('admin.product.index')->with('success', 'Data Berhasil Dihapus');
     }
+
+    
 }
