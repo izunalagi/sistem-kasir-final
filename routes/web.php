@@ -23,10 +23,8 @@ use App\Models\Transaction;
 */
 
 Route::get('/', function () {
-    return redirect('login');
+    return view('welcome');
 });
-
-
 
 Route::middleware(EnsureAuthCustomer::class)->group(function () {
 

@@ -53,7 +53,7 @@
                                             @if ($item->status == '0')
                                                 <button class="btn btn-warning" type="button">Menunggu</button>
                                             @else
-                                                <button class="btn btn-success" type="button">Selesai</button>
+                                                <button type="button" class="btn btn-success" disabled>Selesai</button>
                                             @endif
 
                                         </div>
