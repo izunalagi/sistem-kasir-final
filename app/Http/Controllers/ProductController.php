@@ -17,8 +17,6 @@ class ProductController extends Controller
 
     public function create(Request $request)
     {
-       
-        
         $categories = Category::all();
         return view('product.create', compact('categories'));
     }
@@ -53,16 +51,16 @@ class ProductController extends Controller
 
     public function update($id, Request $request)
     {
-        
+
         $file = $request->file('photo');
-        if($file != null){
+        if ($file != null) {
             $filename = time() . '.' .
-            $file->getClientOriginalExtension();
+                $file->getClientOriginalExtension();
 
             $photo_path = $request->file('photo')->storeAs('public/products', $filename);
             $photo_path = str_replace('public/', '', $photo_path);
         }
-        
+
 
         $ganti = Product::find($id);
         $ganti->name = $request->name;
@@ -72,7 +70,7 @@ class ProductController extends Controller
         if (isset($photo_path)) {
             $ganti->photo = $photo_path;
         }
-        
+
         $ganti->save();
         return redirect()->route('admin.product.index')->with('success', 'Data Berhasil Diubah');
     }

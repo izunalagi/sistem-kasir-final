@@ -6,7 +6,7 @@
         <div class="row ">
             <div class="col">
                 <div class="card">
-                    <div class="card-header">{{ __('Transaksi') }}</div>
+                    <div class="card-header">{{ __('Data') }}</div>
 
                     <br>
 
@@ -15,23 +15,29 @@
                         <a href="{{ route('transaction.create') }}">
                             <button type="button" class="btn btn-outline-success">Buat</button>
                         </a>
-                        <br>
-                        <br>
+
+                        <a href="{{ route('home') }}">
+                            <button type="button" class="btn btn-outline-success">kembali</button>
+                        </a>
                     </div>
+
+
+
                     <table class="table table-bordered">
                         <thead>
+                            <th>
+                                <tr>
+                                    <td>No</td>
+                                    <td>buyer</td>
+                                    <td>date</td>
+                                    <td>transaksi</td>
+                                    <td>Status</td>
+                                    <td>Action</td>
 
-                            <tr>
-                                <th>No</th>
-                                <th>buyer</th>
-                                <th>date</th>
-                                <th>transaksi</th>
-                                <th>Status</th>
-                                <th>Action</th>
-                            </tr>
-
+                                </tr>
+                            </th>
                         </thead>
-
+                        </th>
                         <tbody>
                             @foreach ($transactions as $item)
                                 <tr>

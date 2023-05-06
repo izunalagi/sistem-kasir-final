@@ -13,9 +13,9 @@
                                 <button type="button" class="btn btn-primary mp-3">Buat</button>
                             </a>
 
-                            <a href="{{ route('home') }}">
+                            {{-- <a href="{{ route('home') }}">
                                 <button type="button" class="btn btn-primary ">kembali</button>
-                            </a>
+                            </a> --}}
                         </div>
                         <table class="table table-bordered">
                             <thead>
