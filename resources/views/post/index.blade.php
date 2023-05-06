@@ -2,7 +2,7 @@
 @section('isi')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md">
                 <div class="card">
                     <div class="card-body">
                         <a href="{{ route('admin.post.create') }}" type="button" class="btn btn-primary mb-3">
