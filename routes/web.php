@@ -26,9 +26,7 @@ Route::get('/', function () {
     return redirect('login');
 });
 
-Route::get('/home', function () {
-return redirect('/catalouge');
-});
+
 
 Route::middleware(EnsureAuthCustomer::class)->group(function () {
 
@@ -67,7 +65,7 @@ Route::middleware(EnsureAuthCustomer::class)->group(function () {
     Route::post('/home/checkout/transaction/checkout/{id}', [CheckoutController::class, 'checkout'])->name('checkout.checkout');
     Route::delete('/checkout/delete/{id}', [CheckoutController::class, 'destroy'])->name('checkout.destroy');
 
-    // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
     //catalouge
     Route::get('/catalouge', [FrontendController::class, 'index'])->name('catalouge.index');
