@@ -16,7 +16,7 @@
                             <button type="button" class="btn btn-outline-success">Buat</button>
                         </a>
 
-                        <a href="{{ route('home') }}">
+                        <a href="{{ route('transaction.index') }}">
                             <button type="button" class="btn btn-outline-success">kembali</button>
                         </a>
                     </div>

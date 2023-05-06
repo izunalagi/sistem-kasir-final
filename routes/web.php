@@ -72,12 +72,6 @@ Route::middleware(EnsureAuthCustomer::class)->group(function () {
    
     //productdetail
     Route::get('/home/product/detail', [ProductDetail::class, 'index'])->name('productdetail.index');
-    // Route::get('/buyer/create', [BuyerController::class, 'create'])->name('buyer.create');
-    // Route::post('/buyer/store', [BuyerController::class, 'store'])->name('buyer.store');
-    // Route::get('/buyer/{id}/edit', [BuyerController::class, 'edit'])->name('buyer.edit');
-    // Route::put('/buyer/{id}', [BuyerController::class, 'update'])->name('buyer.update');
-    // Route::delete('/buyer/{id}', [BuyerController::class, 'destroy'])->name('buyer.destroy');
-
 });
 
 Auth::routes();
