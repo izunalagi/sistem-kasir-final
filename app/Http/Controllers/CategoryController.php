@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CategoryValidationRequest;
 use App\Models\Category;
 use GuzzleHttp\Promise\Create;
 use Illuminate\Http\Request;
@@ -38,7 +39,7 @@ class CategoryController extends Controller
     return view('category.create');
     }
 
-    public function store(Request $request)
+    public function store(CategoryValidationRequest $request)
     {
     $data = $request->all();
 

@@ -21,8 +21,6 @@
                                     <p>Pesanan Selesai</p>
                                 @endif
 
-
-
                             </div>
                         </div>
                     </div>
@@ -63,7 +61,17 @@
                                                 <input type="number" class="form-control" name="qty" id="">
                                                 <input type="hidden" name="transaction_id" value="{{ $details->id }}">
                                             </div>
-                                            <input class="btn btn-info mt-2" type="submit" value="Tambahkan">
+                                            <div>
+                                                @if ($details->status == '0')
+                                                    @csrf
+                                                    <input class="btn btn-info mt-2" type="submit" value="Tambahkan">
+                                                @else
+                                                    <button type="submit" class="btn btn-secondary mt-2"
+                                                        disabled>Tambahkan</button>
+                                                @endif
+                                            </div>
+
+
 
                                     </form>
                                 </div>

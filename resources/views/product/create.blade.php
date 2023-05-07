@@ -16,14 +16,23 @@
                             <div class="form-floating mb-3">
                                 <label for="name">name :</label>
                                 <input type="text" name="name" placeholder="Name" class="form-control">
+                                @error('name')
+                                    <span class="me-2 text-danger fw-bold">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="form-floating mb-3">
                                 <label for="price">price :</label>
                                 <input type="text" name="price" placeholder="Price" class="form-control">
+                                @error('price')
+                                    <span class="me-2 text-danger fw-bold">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="form-floating mb-3">
                                 <label for="stocks">stocks :</label>
                                 <input type="number" name="stocks" placeholder="Stocks" class="form-control">
+                                @error('stocks')
+                                    <span class="me-2 text-danger fw-bold">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="form-floating mb-3">
                                 <label for="category">category :</label>
@@ -34,10 +43,16 @@
                                         }
                                     @endforeach
                                 </select>
+                                @error('category_id')
+                                    <span class="me-2 text-danger fw-bold">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="form-floating mb-3">
                                 <label for="photo">Upload Photo :</label>
                                 <input type="file" name="photo" placeholder="Upload Photo">
+                                @error('photo')
+                                    <span class="me-2 text-danger fw-bold">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="row justify-content-center">
                                 <button type="submit" class="btn btn-primary col-md-4">Submit</button>

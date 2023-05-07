@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductDetaiValidationRequest;
 use App\Models\Product;
 use App\Models\ProductDetail;
 use Illuminate\Http\Request;
@@ -20,7 +21,7 @@ class DetailProductController extends Controller
         return view('productdetail.create', compact('products'));
     }
 
-    public function store(Request $request)
+    public function store(ProductDetaiValidationRequest $request)
     {
         $products = ProductDetail::create([
             'product_id' => $request->product_id,

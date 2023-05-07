@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductValidationRequest;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -22,7 +23,7 @@ class ProductController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(ProductValidationRequest $request)
     {
         $file = $request->file('photo');
         $filename = time() . '.' .
@@ -87,5 +88,6 @@ class ProductController extends Controller
         return redirect()->route('admin.product.index')->with('success', 'Data Berhasil Dihapus');
     }
 
-    
+   
+
 }
