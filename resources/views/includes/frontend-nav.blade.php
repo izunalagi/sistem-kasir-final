@@ -39,11 +39,7 @@
 
                         {{-- <li><a class="dropdown-item" href="detail-page.html">Detail Page</a></li> --}}
 
-                        @auth
-                            @if (Auth::user()->userRole->role->name == 'admin')
-                                <li><a class="dropdown-item" href="{{ route('admin.dashboard.admin') }}">Dashboard</a></li>
-                            @endif
-                        @endauth
+                        <li><a class="dropdown-item" href="{{ route('admin.dashboard.admin') }}">Dashboard</a></li>
                         <li><a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">Logout</a>

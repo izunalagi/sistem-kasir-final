@@ -6,7 +6,7 @@
                 <div class="text-center mb-5 pb-2">
                     <h1 class="text-white">Catalogue</h1>
 
-                    <p class="text-white">Seven eleven 7</p>
+                    <p class="text-white">KasirQ</p>
 
                     {{-- <a href="#section_2" class="btn custom-btn smoothscroll mt-3">Start listening</a> --}}
                 </div>

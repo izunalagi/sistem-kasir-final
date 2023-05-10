@@ -14,10 +14,6 @@
                         <a href="{{ route('transaction.create') }}">
                             <button type="button" class="btn btn-outline-success">Buat</button>
                         </a>
-
-                        <a href="{{ route('transaction.index') }}">
-                            <button type="button" class="btn btn-outline-success">kembali</button>
-                        </a>
                         <br>
                         <br>
 
@@ -61,9 +57,14 @@
                                             <form action="{{ route('transaction.destroy', $item->id) }}" method="POST">
                                                 <a type="button" class="btn btn-secondary"
                                                     href="{{ route('transaction.edit', $item->id) }}">Edit</a>
-                                                @method('delete')
-                                                @csrf
-                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                                @if ($item->status == '0')
+                                                    @method('delete')
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                @else
+                                                    <button type="button" class="btn btn-secondary"
+                                                        disabled>Delete</button>
+                                                @endif
                                             </form>
                                         </td>
                                     </tr>

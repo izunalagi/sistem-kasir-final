@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\BuyerValidationRequest;
 use App\Models\Buyer;
 use GuzzleHttp\Promise\Create;
 use Illuminate\Http\Request;
@@ -19,7 +20,7 @@ class BuyerController extends Controller
     return view('buyer.create');
     }
 
-    public function store(Request $request)
+    public function store(BuyerValidationRequest $request)
     {
     $data = $request->all();
 

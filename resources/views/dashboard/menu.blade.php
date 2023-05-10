@@ -20,15 +20,22 @@
                 </p>
             </a>
         </li>
-        <li class="nav-item">
-            <a href="{{ route('category.crud') }}" class="nav-link">
-                <i class="nav-icon fas fa-users"></i>
-                <p>
-                    Category
-                    <i class="right fas fa-angle-left"></i>
-                </p>
-            </a>
-        </li>
+
+
+        @auth
+            @if (Auth::user()->userRole->role->name == 'admin')
+                <li class="nav-item">
+                    <a href="{{ route('category.crud') }}" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Category
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                </li>
+            @endif
+        @endauth
+
         <li class="nav-item">
             <a href="{{ route('admin.product.index') }}" class="nav-link">
                 <i class="nav-icon fas fa-users"></i>

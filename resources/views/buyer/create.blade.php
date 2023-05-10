@@ -18,14 +18,23 @@
                             <div class="form-floating mb-3">
                                 <label for="name">name :</label>
                                 <input type="text" name="name" placeholder="Name" class="form-control">
+                                @error('name')
+                                    <span class="me-2 text-danger fw-bold">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="form-floating mb-3">
                                 <label for="age">age :</label>
                                 <input type="text" name="age" placeholder="Age" class="form-control">
+                                @error('age')
+                                    <span class="me-2 text-danger fw-bold">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="form-floating mb-4">
                                 <label for="address">address :</label>
                                 <input type="text" name="address" placeholder="Address" class="form-control">
+                                @error('address')
+                                    <span class="me-2 text-danger fw-bold">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="row justify-content-center">
                                 <button type="submit" class="btn btn-primary col-md-4">Submit</button>

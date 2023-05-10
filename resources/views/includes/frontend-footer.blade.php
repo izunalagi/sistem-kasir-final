@@ -20,11 +20,11 @@
             <div class="col-lg-3 col-md-6 col-12 mb-4 mb-md-0 mb-lg-0">
                 <h6 class="site-footer-title mb-3">Contact</h6>
 
-                <p class="mb-2"><strong class="d-inline me-2">Phone:</strong> 010-020-0340</p>
+                <p class="mb-2"><strong class="d-inline me-2">Phone:</strong>0812-1651-9331</p>
 
                 <p>
                     <strong class="d-inline me-2">Email:</strong>
-                    <a href="#">inquiry@pod.co</a>
+                    <a href="#">kasirq@gmail.com</a>
                 </p>
             </div>
 
