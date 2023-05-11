@@ -7,38 +7,31 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row d-flex flex-row-reverse">
-                            <a href="{{ route('admin.productdetail.index') }}">
+                            <a href="{{ route('admin.userrole.index') }}">
                                 <button type="button" class="btn btn-outline-dark">Back</button>
                             </a>
                         </div>
                         <form action="{{ route('admin.productdetail.store') }}" method="POST">
                             @csrf
                             <div class="form-floating mb-3">
-                                <label for="product">Product :</label>
-                                <select name="product_id" id="" class="form-control">
-                                    @foreach ($products as $item)
+                                <label for="user">User :</label>
+                                <select name="user_id" id="" class="form-control">
+                                    @foreach ($users as $item)
                                         {
                                         <option value="{{ $item->id }}">{{ $item->name }}</option>
                                         }
                                     @endforeach
                                 </select>
-                                @error('product_id')
-                                    <span class="me-2 text-danger fw-bold">{{ $message }}</span>
-                                @enderror
                             </div>
                             <div class="form-floating mb-3">
-                                <label for="unit">unit :</label>
-                                <input type="text" name="unit" placeholder="Unit" class="form-control">
-                                @error('unit')
-                                    <span class="me-2 text-danger fw-bold">{{ $message }}</span>
-                                @enderror
-                            </div>
-                            <div class="form-floating mb-3">
-                                <label for="brand">brand :</label>
-                                <input type="text" name="brand" placeholder="Brand" class="form-control">
-                                @error('brand')
-                                    <span class="me-2 text-danger fw-bold">{{ $message }}</span>
-                                @enderror
+                                <label for="role">Role :</label>
+                                <select name="role_id" id="" class="form-control">
+                                    @foreach ($roles as $item)
+                                        {
+                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                        }
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="row justify-content-center">
                                 <button type="submit" class="btn btn-primary col-md-4">Kirim</button>

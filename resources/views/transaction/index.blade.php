@@ -55,14 +55,14 @@
                                         </td>
                                         <td>
                                             <form action="{{ route('transaction.destroy', $item->id) }}" method="POST">
-                                                <a type="button" class="btn btn-secondary"
+                                                <a type="button" class="btn btn-dark"
                                                     href="{{ route('transaction.edit', $item->id) }}">Edit</a>
                                                 @if ($item->status == '0')
                                                     @method('delete')
                                                     @csrf
                                                     <button type="submit" class="btn btn-danger">Delete</button>
                                                 @else
-                                                    <button type="button" class="btn btn-secondary"
+                                                    <button type="submit" class="btn btn-secondary"
                                                         disabled>Delete</button>
                                                 @endif
                                             </form>

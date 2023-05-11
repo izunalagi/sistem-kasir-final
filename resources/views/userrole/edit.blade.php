@@ -5,22 +5,22 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <div class="card-header">Edit DetailProduct</div>
+                <div class="card-header"></div>
                 <div class="card">
                     <div class="card-body">
                         <div class="row d-flex flex-row-reverse">
-                            <a href="{{ route('admin.productdetail.index') }}">
+                            <a href="{{ route('admin.userrole.index') }}">
                                 <button type="button" class="btn btn-outline-dark">Kembali</button>
                             </a>
                         </div>
-                        <form action="{{ route('admin.productdetail.update', $ganti->id) }}" method="POST"
+                        <form action="{{ route('admin.userrole.update', $ganti->id) }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
                             @method('put')
                             <div class="form-floating mb-3">
-                                <label for="product">Product :</label>
-                                <select name="product_id" id="" class="form-control">
-                                    @foreach ($products as $item)
+                                <label for="user">User :</label>
+                                <select name="user_id" id="" class="form-control">
+                                    @foreach ($users as $item)
                                         {
                                         <option value="{{ $item->id }}">{{ $item->name }}</option>
                                         }
@@ -28,14 +28,14 @@
                                 </select>
                             </div>
                             <div class="form-floating mb-3">
-                                <label for="unit">unit :</label>
-                                <input type="text" name="unit" placeholder="Unit" class="form-control"
-                                    value="{{ $ganti->unit }}">
-                            </div>
-                            <div class="form-floating mb-4">
-                                <label for="brand">brand :</label>
-                                <input type="text" name="brand" placeholder="Brand"
-                                    class="form-control"value="{{ $ganti->brand }}">
+                                <label for="role">Role :</label>
+                                <select name="role_id" id="" class="form-control">
+                                    @foreach ($roles as $item)
+                                        {
+                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                        }
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="row justify-content-center">
                                 <button type="submit" class="btn btn-primary col-md-4">Submit</button>

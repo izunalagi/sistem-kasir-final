@@ -78,5 +78,28 @@
             </a>
 
         </li>
+
+
+        <li class="nav-item">
+            <a href="{{ route('admin.role.index') }}" class="nav-link">
+                <i class="nav-icon fas fa-users"></i>
+                <p>
+                    Role
+                    <i class="right fas fa-angle-left"></i>
+                </p>
+            </a>
+        </li>
+
+
+        <li class="nav-item">
+            <a href="{{ route('admin.userrole.index') }}" class="nav-link">
+                <i class="nav-icon fas fa-users"></i>
+                <p>
+                    User Role
+                    <i class="right fas fa-angle-left"></i>
+                </p>
+            </a>
+        </li>
+
     </ul>
 </nav>

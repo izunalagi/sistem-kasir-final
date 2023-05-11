@@ -10,7 +10,7 @@ class TransactionController extends Controller
 {
     public function index(Request $request)
     {
-    $transactions = Transaction::all();
+    $transactions = Transaction::orderBy('status', 'asc')->get();
     return view('transaction.index', compact('transactions'));
     }
 
